@@ -1,6 +1,6 @@
 Package: RDieHarder
-Version: 0.1.0
-Date: $Date: 2008-09-10 11:14:44 -0500 (Wed, 10 Sep 2008) $
+Version: 0.1.1
+Date: $Date: 2009-01-30 20:15:40 -0600 (Fri, 30 Jan 2009) $
 Author: Dirk Eddelbuettel <edd@debian.org>
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Title: R interface to the dieharder RNG test suite
@@ -14,4 +14,4 @@ SystemRequirements: DieHarder library (>= 2.8.1) from
   GNU GSL for the GSL random-number generators
 License: GPL (>= 2)
 URL: http://code.google.com/p/rdieharder/
-Packaged: Wed Sep 17 06:50:40 2008; edd
+Packaged: Fri Jan 30 20:35:54 2009; edd

@@ -1,7 +1,7 @@
 
 stopifnot(require(RDieHarder, quiet=TRUE))
 
-if (identical(Sys.getenv("RUN_EXPENSIVE_TEST"), "YES")) {
+if (Sys.getenv("RUN_EXPENSIVE_TEST") == "YES") {
     ## RGB tests 3, 5 and 6 at ntuple=5
     for (num in c(3,5,6)) {
         print( dieharder(test=100+num, seed=1, ntuple=5)$p.value )
