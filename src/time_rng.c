@@ -8,13 +8,16 @@
 
 /*
  *========================================================================
- *  run_rgb_timing()
+ * time_rng() times the CURRENT random number generator specified by
+ * the global rng.  Truthfully, most of the stuff below is unnecessary,
+ * as rgb_timing() isn't a pvalue-generating test.  I'll rewrite it
+ * eventually, but it works fine as is for now.
  *========================================================================
  */
 
 #include "dieharder.h"
 
-void run_rgb_timing()
+void time_rng()
 {
 
  /*
@@ -27,7 +30,7 @@ void run_rgb_timing()
   * First we create the test (to set some values displayed in test header
   * correctly).
   */
- rgb_timing_test = create_test(&rgb_timing_dtest,tsamples,psamples,&rgb_timing);
+ rgb_timing_test = create_test(&rgb_timing_dtest,tsamples,psamples);
 
  /*
   * Call the actual test that fills in the results struct.
@@ -39,14 +42,6 @@ void run_rgb_timing()
   */
  rng_avg_time_nsec = timing.avg_time_nsec;
  rng_rands_per_second = timing.rands_per_sec;
-
- /*
-  * Display the results.
- printf("#========================================================================\n");
- printf("# rgb_timing() test using the %s generator \n",gsl_rng_name(rng));
- printf("# Average time per rand = %e nsec.\n",timing.avg_time_nsec);
- printf("# Rands per second = %e.\n",timing.rands_per_sec);
-  */
 
  destroy_test(&rgb_timing_dtest,rgb_timing_test);
 

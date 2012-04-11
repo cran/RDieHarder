@@ -8,6 +8,40 @@
 
 #include "dieharder.h"
 
+static Dtest user_template_dtest = {
+  "Example User Test",
+  "user_template",
+  "\n\
+#==================================================================\n\
+#                  Example Dieharder Test\n\
+#\n\
+#                     Lagged Sum Test\n\
+# This package contains many very lovely tests.  Very few of them,\n\
+# however, test for lagged correlations -- the possibility that\n\
+# the random number generator has a bitlevel correlation after\n\
+# some period.  Diehard tests, for example, COULD NOT test for this\n\
+# sort of thing with only a few million rands to sample from.\n\
+# The template test is therefore very simple.  It takes a user-\n\
+# specified lag (-x lag) and adds up uniform deviates sampled with\n\
+# that lag.  The mean of tsamples samples summed should be\n\
+# 0.5*tsamples.  The standard deviation should be sqrt(tsamples/12).\n\
+# The experimental values of the sum are thus converted into a\n\
+# p-value (using the erf()) and a ks-test applied to psamples of them.\n\
+#==================================================================\n",
+  100,
+  100000,
+  1,
+  user_template,
+  0
+};
+
+void help_user_template()
+{
+
+  Rprintf("%s",user_template_dtest.description);
+
+}
+
 void help()
 {
 
@@ -18,63 +52,35 @@ void help()
   * "#" so it is easy to filter out of standard test results output.
   */
  if(all==YES){
-   printf("%s",rgb_timing_dtest.description);
-   fflush(stdout);
-   printf("%s",rgb_persist_dtest.description);
-   fflush(stdout);
-   printf("%s",rgb_bitdist_dtest.description);
-   fflush(stdout);
-   printf("%s",rgb_minimum_distance_dtest.description);
-   fflush(stdout);
-   printf("%s",rgb_permutations_dtest.description);
-   fflush(stdout);
-   printf("%s",rgb_lagged_sums_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_birthdays_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_operm5_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_rank_32x32_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_rank_6x8_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_bitstream_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_opso_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_oqso_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_dna_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_count_1s_stream_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_count_1s_byte_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_parking_lot_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_2dsphere_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_3dsphere_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_squeeze_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_sums_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_runs_dtest.description);
-   fflush(stdout);
-   printf("%s",diehard_craps_dtest.description);
-   fflush(stdout);
-   printf("%s",marsaglia_tsang_gcd_dtest.description);
-   fflush(stdout);
-   printf("%s",sts_monobit_dtest.description);
-   fflush(stdout);
-   printf("%s",sts_runs_dtest.description);
-   fflush(stdout);
-   printf("%s",sts_serial_dtest.description);
-   fflush(stdout);
+   Rprintf("%s",rgb_timing_dtest.description);
+   Rprintf("%s",rgb_persist_dtest.description);
+   Rprintf("%s",rgb_bitdist_dtest.description);
+   Rprintf("%s",rgb_minimum_distance_dtest.description);
+   Rprintf("%s",rgb_permutations_dtest.description);
+   Rprintf("%s",rgb_lagged_sums_dtest.description);
+   Rprintf("%s",diehard_birthdays_dtest.description);
+   Rprintf("%s",diehard_operm5_dtest.description);
+   Rprintf("%s",diehard_rank_32x32_dtest.description);
+   Rprintf("%s",diehard_rank_6x8_dtest.description);
+   Rprintf("%s",diehard_bitstream_dtest.description);
+   Rprintf("%s",diehard_opso_dtest.description);
+   Rprintf("%s",diehard_oqso_dtest.description);
+   Rprintf("%s",diehard_dna_dtest.description);
+   Rprintf("%s",diehard_count_1s_stream_dtest.description);
+   Rprintf("%s",diehard_count_1s_byte_dtest.description);
+   Rprintf("%s",diehard_parking_lot_dtest.description);
+   Rprintf("%s",diehard_2dsphere_dtest.description);
+   Rprintf("%s",diehard_3dsphere_dtest.description);
+   Rprintf("%s",diehard_squeeze_dtest.description);
+   Rprintf("%s",diehard_sums_dtest.description);
+   Rprintf("%s",diehard_runs_dtest.description);
+   Rprintf("%s",diehard_craps_dtest.description);
+   Rprintf("%s",marsaglia_tsang_gcd_dtest.description);
+   Rprintf("%s",sts_monobit_dtest.description);
+   Rprintf("%s",sts_runs_dtest.description);
+   Rprintf("%s",sts_serial_dtest.description);
    help_user_template();
-   fflush(stdout);
-   exit(0);
+   Exit(0);
  }
 
  /*
@@ -82,76 +88,58 @@ void help()
   */
  switch(diehard){
    case DIEHARD_BDAY:
-     printf("%s",diehard_birthdays_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_birthdays_dtest.description);
      break;
    case DIEHARD_OPERM5:
-     printf("%s",diehard_operm5_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_operm5_dtest.description);
      break;
    case DIEHARD_RANK_32x32:
-     printf("%s",diehard_rank_32x32_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_rank_32x32_dtest.description);
      break;
    case DIEHARD_RANK_6x8:
-     printf("%s",diehard_rank_6x8_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_rank_6x8_dtest.description);
      break;
    case DIEHARD_BITSTREAM:
-     printf("%s",diehard_bitstream_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_bitstream_dtest.description);
      break;
    case DIEHARD_OPSO:
-     printf("%s",diehard_opso_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_opso_dtest.description);
      break;
    case DIEHARD_OQSO:
-     printf("%s",diehard_oqso_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_oqso_dtest.description);
      break;
    case DIEHARD_DNA:
-     printf("%s",diehard_dna_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_dna_dtest.description);
      break;
    case DIEHARD_COUNT_1S_STREAM:
-     printf("%s",diehard_count_1s_stream_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_count_1s_stream_dtest.description);
      break;
    case DIEHARD_COUNT_1S_BYTE:
-     printf("%s",diehard_count_1s_byte_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_count_1s_byte_dtest.description);
      break;
    case DIEHARD_PARKING_LOT:
-     printf("%s",diehard_parking_lot_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_parking_lot_dtest.description);
      break;
    case DIEHARD_2DSPHERE:
-     printf("%s",diehard_2dsphere_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_2dsphere_dtest.description);
      break;
    case DIEHARD_3DSPHERE:
-     printf("%s",diehard_3dsphere_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_3dsphere_dtest.description);
      break;
    case DIEHARD_SQUEEZE:
-     printf("%s",diehard_squeeze_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_squeeze_dtest.description);
      break;
    case DIEHARD_SUMS:
-     printf("%s",diehard_sums_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_sums_dtest.description);
      break;
    case DIEHARD_RUNS:
-     printf("%s",diehard_runs_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_runs_dtest.description);
      break;
    case DIEHARD_CRAPS:
-     printf("%s",diehard_craps_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",diehard_craps_dtest.description);
      break;
    case MARSAGLIA_TSANG_GCD:
-     printf("%s",marsaglia_tsang_gcd_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",marsaglia_tsang_gcd_dtest.description);
      break;
    case MARSAGLIA_TSANG_GORILLA:
      break;
@@ -160,28 +148,22 @@ void help()
  }
  switch(rgb){
    case RGB_TIMING:
-     printf("%s",rgb_timing_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_timing_dtest.description);
      break;
    case RGB_PERSIST:
-     printf("%s",rgb_persist_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_persist_dtest.description);
      break;
    case RGB_BITDIST:
-     printf("%s",rgb_bitdist_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_bitdist_dtest.description);
      break;
    case RGB_MINIMUM_DISTANCE:
-     printf("%s",rgb_minimum_distance_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_minimum_distance_dtest.description);
      break;
    case RGB_PERMUTATIONS:
-     printf("%s",rgb_permutations_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_permutations_dtest.description);
      break;
    case RGB_LAGGED_SUMS:
-     printf("%s",rgb_lagged_sums_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",rgb_lagged_sums_dtest.description);
      break;
    case RGB_LMN:
      break;
@@ -190,16 +172,13 @@ void help()
  }
  switch(sts){
    case STS_MONOBIT:
-     printf("%s",sts_monobit_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",sts_monobit_dtest.description);
      break;
    case STS_RUNS:
-     printf("%s",sts_runs_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",sts_runs_dtest.description);
      break;
    case STS_SERIAL:
-     printf("%s",sts_serial_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",sts_serial_dtest.description);
      break;
    default:
      break;
@@ -212,8 +191,7 @@ void help()
   */
  switch(user){
    case USER_TEMPLATE:
-     printf("%s",user_template_dtest.description);
-     fflush(stdout);
+     Rprintf("%s",user_template_dtest.description);
      break;
    default:
      break;
@@ -222,14 +200,14 @@ void help()
  if(diehard == NO && rgb == NO && sts == NO && user == NO && all == NO){
    Usage();
  }
- exit(0);
+ Exit(0);
 
 }
 
 void Usage()
 {
 
- fprintf(stdout, "\n\
+ Rprintf("\n\
 dieharder version %s Copyright 2003 Robert G. Brown\n\
  \n\
 Usage:\n\
@@ -296,7 +274,7 @@ Usage:\n\
   or misleading.  Use them at your Own Risk!  Be Warned!\n\
 \n",QUOTEME(VERSION));
 
- exit(0);
+ Exit(0);
 
 }
 
@@ -305,7 +283,7 @@ Usage:\n\
 void help_test(Dtest *dtest)
 {
 
- printf("%s",dtest->description);
+ Rprintf("%s",dtest->description);
  
 }
  */

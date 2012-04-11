@@ -73,7 +73,7 @@
 
 #include "dieharder.h"
 
-void user_template(Test **test,int irun)
+int user_template(Test **test,int irun)
 {
 
  uint t,i,lag;
@@ -95,7 +95,7 @@ void user_template(Test **test,int irun)
  ptest.sigma = sqrt(test[0]->tsamples/12.0);
 
  if(verbose == D_USER_TEMPLATE || verbose == D_ALL){
-   printf("# user_template(): Doing a test with lag %u\n",lag);
+   Rprintf("# user_template(): Doing a test with lag %u\n",lag);
  }
 
  for(t=0;t<test[0]->tsamples;t++){
@@ -117,14 +117,8 @@ void user_template(Test **test,int irun)
  test[0]->pvalues[irun] = ptest.pvalue;
 
  if(verbose == D_USER_TEMPLATE || verbose == D_ALL){
-   printf("# user_template(): ks_pvalue[%u] = %10.5f\n",irun,test[0]->pvalues[irun]);
+   Rprintf("# user_template(): ks_pvalue[%u] = %10.5f\n",irun,test[0]->pvalues[irun]);
  }
-
+ return(0);
 }
 
-void help_user_template()
-{
-
-  printf("%s",user_template_dtest.description);
-
-}
