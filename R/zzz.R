@@ -1,5 +1,5 @@
-## $Date: 2011-03-24 08:36:03 -0500 (Thu, 24 Mar 2011) $
-## $Id: zzz.R 47 2011-03-24 13:36:03Z dirk.eddelbuettel $
+## $Date$
+## $Id$
 
 # grab the namespace
 .NAMESPACE <- environment()

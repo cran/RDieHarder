@@ -1,5 +1,5 @@
-## $Date: 2011-03-24 08:36:03 -0500 (Thu, 24 Mar 2011) $
-## $Id: dieharder.R 47 2011-03-24 13:36:03Z dirk.eddelbuettel $
+## $Date$
+## $Id$
 
 dieharderGenerators <- function() {
     val <- .Call("dieharderGenerators", PACKAGE="RDieHarder")
@@ -127,7 +127,9 @@ plot.dieharder <- function(x, ...) {
 }
 
 print.dieharder <- function(x, ...) {
-    stats:::print.htest(x, ...)     # why do I need to explicitly dispatch?
+    z <- x
+    class(z) <- "htest"
+    print(z)
     invisible(x)
 }
 
