@@ -1,7 +1,7 @@
 Package: RDieHarder
-Version: 0.2.0
-Date: 2018-12-20
-Author: Dirk Eddelbuettel <edd@debian.org>
+Version: 0.2.1
+Date: 2019-12-06
+Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Title: R Interface to the 'DieHarder' RNG Test Suite
 Description: The 'RDieHarder' package provides an R interface to 
@@ -15,6 +15,6 @@ SystemRequirements: GNU GSL for the GSL random-number generators
 License: GPL (>= 2)
 URL: https://github.com/eddelbuettel/rdieharder
 NeedsCompilation: yes
-Packaged: 2018-12-21 00:10:37.469688 UTC; edd
+Packaged: 2019-12-06 14:29:52.116524 UTC; edd
 Repository: CRAN
-Date/Publication: 2018-12-21 09:20:12 UTC
+Date/Publication: 2019-12-07 09:00:06 UTC
