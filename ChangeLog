@@ -1,3 +1,50 @@
+2021-11-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.2.2
+
+	* src*: Several Nov 1 and Oct 30 changes are based on extremely
+	helpful email by Brian D Ripley which is gratefully acknowledged.
+	Together with the refactored build system and the changes to
+	lindieharder the package should now be in better standing.
+
+	* src/libdieharder/skein_block64.c: Use intptr_t
+	* src/libdieharder/bits.c (mybitadd): Correct assignment
+
+	* src/Makevars.win: Simplified, no longer builds libdieharder
+
+	* README.md: Remove DieHarder URL which upsets CRAN URL	checker
+	* man/dieharder.Rd: Idem
+
+2021-10-31  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* configure.ac: Ran 'autoupdate; autoreconf --warnings=obsolete'
+	* configure: Regenerated
+
+	* src/Makevars.in: Simplified, no longer builds libdieharder
+
+	* src/libdieharder/dab_filltree.c (insert): Use 'static inline'
+	* src/libdieharder/dab_filltree2.c (insertBit): Idem
+
+	* src/libdieharder/*: Adapted for R use by converting all stdout
+	messaging to Rprintf and REprintf, comment-out exit
+
+2021-05-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (BugReports): Add to DESCRIPTION
+
+2021-01-15  Dirk Eddelbuettel  <edd@debian.org>
+
+        * .github/workflows/ci.yaml: Add CI runner using r-ci
+	* README.md: Add new badge
+
+2020-09-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Added 'Last Commit' badge
+
+	* .travis.yml: Updated to 'bionic' and R 4.0.*
+
 2019-12-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.2.1

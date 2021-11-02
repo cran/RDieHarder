@@ -34,7 +34,7 @@ static double targetData[] = {
 0.0, 0.0, 0.0, 0.0, 0.13333333, 0.20000000, 0.20634921, 0.17857143, 0.13007085, 0.08183633, 0.04338395, 0.01851828, 0.00617270, 0.00151193, 0.00023520, 0.00001680, 0.00000000, 0.00000000, 0.00000000, 0.00000000
 };
 
-inline int insert(double x, double *array, unsigned int startVal);
+static inline int insert(double x, double *array, unsigned int startVal);
 
 int dab_filltree(Test **test,int irun) {
  int size = (ntuple == 0) ? 32 : ntuple;
@@ -105,7 +105,7 @@ int dab_filltree(Test **test,int irun) {
 }
 
 
-inline int insert(double x, double *array, unsigned int startVal) {
+static inline int insert(double x, double *array, unsigned int startVal) {
  uint d = (startVal + 1) / 2;
  uint i = startVal;
  while (d > 0) {
@@ -125,6 +125,7 @@ inline int insert(double x, double *array, unsigned int startVal) {
 
 #include<time.h>
 
+#if FALSE
 int main_filltree(int argc, char **argv) {
  int size = 64;
  int startVal = (size / 2) - 1;
@@ -144,11 +145,11 @@ int main_filltree(int argc, char **argv) {
      i++;
    } while (insert(x, array, startVal) == 0);
 
-   printf("%d\n", i);
+   Rprintf("%d\n", i);
  }
 
  //  for (i = 0; i < size; i++) printf("%f\n", array[i]);
 
  return(0);
 }
-
+#endif
