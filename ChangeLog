@@ -1,3 +1,30 @@
+2021-12-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.2.3
+	* configure.ac: Idem
+	* configure: Idem
+
+	* src/libdieharder/dieharder/libdieharder.h (KB): Renamed from K
+	* src/libdieharder/rng_file_input.c (file_input_get): Use KB not K
+
+	* src/libdieharder/kstest.c (p_ks_new): Allocate two vectors with
+	calloc instead of malloc for side effect of zero setting
+
+2021-12-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* configure.win: Based on patch by Tomas Kalibera that is part of his
+	changes for the Windows utf8-enhabced ucrt3 builds of R 4.2.0
+
+2021-11-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* src/libdieharder/rngs_gnu_r.c: Comment-out #define for long
+	triggering warning when using clang
+	* src/dieharder.c (dieharderGenerators): Also initialize j
+
+	* configure.ac: Set version 0.2.2, belatedly
+
 2021-11-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.2.2
