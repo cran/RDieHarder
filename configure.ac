@@ -1,10 +1,10 @@
 # Process this file with autoconf to produce a configure script.
 #
 # Configure.in for RDieHarder
-# Copyright (C) 2008 - 2022  Dirk Eddelbuettel and licensed under GNU GPL
+# Copyright (C) 2008 - 2023  Dirk Eddelbuettel and licensed under GNU GPL
 
 # The version set here will propagate to other files from here
-AC_INIT([RDieHarder],[0.2.4])
+AC_INIT([RDieHarder],[0.2.5])
 
 # Ensure C++ is set up as R expects
 : ${R_HOME=`R RHOME`}
@@ -21,9 +21,6 @@ else
    AC_MSG_RESULT([big])
    endianness=0
 fi
-
-# Checks for common programs using default macros
-AC_PROG_CC
 
 # Check for non-standard programs: gsl-config(1)
 AC_PATH_PROG([GSL_CONFIG], [gsl-config])
@@ -144,7 +141,6 @@ AC_SUBST(ENDIANNESS)
 AC_CONFIG_FILES([src/Makevars])
 AC_OUTPUT
 #AC_CONFIG_FILES([src/libdieharder/Makefile])
-AC_OUTPUT
 
 #echo "
 #${PACKAGE_NAME} ${PACKAGE_VERSION}
